@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Django para Cíntia{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'aulas/css/estilo.css' %}">
+</head>
+<body>
+    {# Este trecho será compartilhado por todas as páginas. #}
+    {% include 'aulas/partials/menu.html' %}
+
+    <main class="container">
+        {% block conteudo %}{% endblock %}
+    </main>
+
+    <footer class="container">
+        Feito para Cíntia aprender · Python + Django + HTML
+    </footer>
+</body>
+</html>

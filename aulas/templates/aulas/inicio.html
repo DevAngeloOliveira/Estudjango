@@ -1,0 +1,45 @@
+{% extends 'aulas/base.html' %}
+
+{% block titulo %}Início | Django para Cíntia{% endblock %}
+
+{% block conteudo %}
+<section class="apresentacao">
+    <p class="etiqueta">PRIMEIROS PASSOS</p>
+    <h1>Iai, {{ nome }}!</h1>
+    <p class="subtitulo">{{ curso }}</p>
+    <p>Este espaço foi preparado para você aprender Django aos poucos,
+        começando por como os dados em Python se transformam em uma página HTML.</p>
+    <a class="botao" href="{% url 'aulas:alunos' %}">Ver o exemplo com alunos →</a>
+</section>
+
+<section class="painel">
+    <h2>O caminho de uma página</h2>
+    <p><strong>URL → View → Template → HTML no navegador</strong></p>
+    <p>A URL escolhe a view. A view prepara o contexto e chama
+        <code>render()</code>. O template usa esses dados para montar o HTML.</p>
+</section>
+
+<section class="painel">
+    <h2>O que você vai praticar</h2>
+    <ul>
+        {% for topico in topicos %}
+            <li>{{ topico }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="painel">
+    <h2>Conheça a sintaxe</h2>
+    <p>Variáveis exibem valores; tags controlam a estrutura da página.</p>
+    {# verbatim permite mostrar a sintaxe sem executá-la. #}
+    {% verbatim %}
+    <pre><code>{{ nome }}                  → exibe uma variável
+{{ nome|capfirst }}         → aplica um filtro
+{% if aprovado %}...{% endif %} → verifica uma condição
+{% for aluno in alunos %}...{% endfor %} → percorre uma lista</code></pre>
+    {% endverbatim %}
+    <p>Seu primeiro desafio, {{ nome }}: abra <code>aulas/views.py</code>,
+        troque o valor de <code>nome</code> por um apelido seu e atualize a página.
+        Veja como a saudação acompanha a mudança.</p>
+</section>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'aulas/base.html' %}
+
+{% block titulo %}Alunos | Django para Cíntia{% endblock %}
+
+{% block conteudo %}
+<section class="apresentacao">
+    <p class="etiqueta">EXEMPLO PRÁTICO</p>
+    <h1>Notas da turma</h1>
+    <p>Aqui você vai praticar loops, condições e filtros usando uma turma fictícia.</p>
+</section>
+
+<section class="painel">
+    <h2>Alunos</h2>
+    <p>Total de alunos: <strong>{{ alunos|length }}</strong></p>
+    <div class="tabela-container">
+        <table>
+            <caption>Dados fictícios. Neste exemplo, a média para aprovação é 7.</caption>
+            <thead>
+                <tr><th scope="col">#</th><th scope="col">Nome</th><th scope="col">Nota</th><th scope="col">Situação</th></tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ aluno.nome }}</td>
+                        <td>{{ aluno.nota|floatformat:1 }}</td>
+                        <td>
+                            {% if aluno.nota >= 7 %}
+                                <span class="situacao aprovado">Aprovado</span>
+                            {% else %}
+                                <span class="situacao recuperacao">Recuperação</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="4">Nenhum aluno cadastrado.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="painel">
+    <h2>Leia o código desta página</h2>
+    <ul>
+        <li><code>for</code> cria uma linha para cada aluno; <code>empty</code> trata a lista vazia.</li>
+        <li><code>forloop.counter</code> numera as linhas a partir de 1.</li>
+        <li><code>aluno.nome</code> acessa a chave do dicionário.</li>
+        <li><code>if / else</code> escolhe a situação de acordo com a nota.</li>
+        <li><code>floatformat:1</code> exibe uma casa decimal; <code>length</code> conta os alunos.</li>
+    </ul>
+    <p>Agora é sua vez: edite uma nota na lista em <code>aulas/views.py</code>,
+        atualize a página e observe como a situação muda.</p>
+</section>
+{% endblock %}
