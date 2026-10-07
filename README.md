@@ -1,9 +1,9 @@
 # Django Templates para Cíntia
 
-Projeto acadêmico preparado para a Cíntia, uma aluna iniciante, usando Python,
+Projeto acadêmico preparado para a Cíntia, aquela que foi abandonada por um tal de Eduardo, usando Python,
 Django 5.2 e HTML com Django Templates.
 
-Cíntia, comece pela página inicial e depois explore o exemplo da turma.
+Cíntia, começando pela página inicial e depois explore o exemplo da turma.
 A ideia é ler um trecho de código, fazer uma pequena mudança e conferir o resultado no navegador.
 As páginas usam dados fictícios em memória para focar em URLs, views e templates.
 O SQLite permanece na configuração padrão do Django; os exemplos não consultam o banco.
